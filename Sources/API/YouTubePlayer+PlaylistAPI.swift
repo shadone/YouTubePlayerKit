@@ -73,6 +73,7 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// This function returns an array of the video IDs in the playlist as they are currently ordered
+    @MainActor
     func getPlaylist() async throws -> [String] {
         try await withCheckedThrowingContinuation { continuation in
             self.getPlaylist(completion: continuation.resume)
@@ -94,6 +95,7 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// This function returns the index of the playlist video that is currently playing.
+    @MainActor
     func getPlaylistIndex() async throws -> Int {
         try await withCheckedThrowingContinuation { continuation in
             self.getPlaylistIndex(completion: continuation.resume)

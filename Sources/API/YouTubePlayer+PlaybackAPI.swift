@@ -19,6 +19,7 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// Returns a number between 0 and 1 that specifies the percentage of the video that the player shows as buffered
+    @MainActor
     func getVideoLoadedFraction() async throws -> Double {
         try await withCheckedThrowingContinuation { continuation in
             self.getVideoLoadedFraction(completion: continuation.resume)
@@ -79,6 +80,7 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// Returns the PlaybackState of the player video
+    @MainActor
     func getPlaybackState() async throws -> PlaybackState {
         try await withCheckedThrowingContinuation { continuation in
             self.getPlaybackState(completion: continuation.resume)
@@ -100,6 +102,7 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// Returns the elapsed time in seconds since the video started playing
+    @MainActor
     func getCurrentTime() async throws -> Double {
         try await withCheckedThrowingContinuation { continuation in
             self.getCurrentTime(completion: continuation.resume)
@@ -159,6 +162,7 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// Returns the current PlaybackMetadata
+    @MainActor
     func getPlaybackMetadata() async throws -> PlaybackMetadata {
         try await withCheckedThrowingContinuation { continuation in
             self.getPlaybackMetadata(completion: continuation.resume)

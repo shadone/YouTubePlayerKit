@@ -18,6 +18,7 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// This function retrieves the playback rate of the currently playing video
+    @MainActor
     func getPlaybackRate() async throws -> PlaybackRate {
         try await withCheckedThrowingContinuation { continuation in
             self.getPlaybackRate(completion: continuation.resume)
@@ -52,6 +53,7 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// This function returns the set of playback rates in which the current video is available
+    @MainActor
     func getAvailablePlaybackRates() async throws -> [PlaybackRate] {
         try await withCheckedThrowingContinuation { continuation in
             self.getAvailablePlaybackRates(completion: continuation.resume)

@@ -32,7 +32,6 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// Returns Bool value if the player is muted
-    @MainActor
     func isMuted() async throws -> Bool {
         try await withCheckedThrowingContinuation { continuation in
             self.isMuted(completion: continuation.resume)
@@ -54,7 +53,6 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// Returns the player's current volume, an integer between 0 and 100
-    @MainActor
     func getVolume() async throws -> Int {
         try await withCheckedThrowingContinuation { continuation in
             self.getVolume(completion: continuation.resume)

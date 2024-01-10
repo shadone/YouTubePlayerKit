@@ -36,7 +36,6 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// Retrieve the YouTubePlayer Information
-    @MainActor
     func getInformation() async throws -> Information {
         try await withCheckedThrowingContinuation { continuation in
             self.getInformation(completion: continuation.resume)
@@ -58,7 +57,6 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// Returns the duration in seconds of the currently playing video
-    @MainActor
     func getDuration() async throws -> Double {
         try await withCheckedThrowingContinuation { continuation in
             self.getDuration(completion: continuation.resume)
@@ -98,7 +96,6 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// Returns the YouTube.com URL for the currently loaded/playing video
-    @MainActor
     func getVideoURL() async throws -> String {
         try await withCheckedThrowingContinuation { continuation in
             self.getVideoURL(completion: continuation.resume)
@@ -120,7 +117,6 @@ public extension YouTubePlayer {
     
     #if compiler(>=5.5) && canImport(_Concurrency)
     /// Returns the embed code for the currently loaded/playing video
-    @MainActor
     func getVideoEmbedCode() async throws -> String {
         try await withCheckedThrowingContinuation { continuation in
             self.getVideoEmbedCode(completion: continuation.resume)
